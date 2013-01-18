@@ -43,6 +43,7 @@ public class MinecartRevolutionTags extends BukkitMinecartRevolutionPlugin {
         tagManager = new TagManager(this);
 
         addExpressionCommand(new TagCommand(this));
+        addControlSign(new TagSign());
 
         ((BasicExpressionPlugin) PluginManager.getPlugin(BasicExpressionPlugin.class)).getMinecartTerms().add(new TagMinecartTerm(this));
     }
