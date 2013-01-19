@@ -24,21 +24,16 @@ public class TagMinecartTerm implements MinecartTerm {
     public boolean getResult(final Minecart minecart, final Direction direction, final String term) {
 
         final TagManager tagManager = minecartRevolutionTags.getTagManager();
-
         String tagTerm = term.split("-")[1];
         tagTerm = tagTerm.replaceAll("\\*", ".*");
-        final boolean negate = tagTerm.startsWith("!");
-        if (negate) {
-            tagTerm = tagTerm.replace("!", "");
-        }
 
         for (final String tag : tagManager.getTags(minecart)) {
             if (tag.matches(tagTerm)) {
-                return negate ? false : true;
+                return true;
             }
         }
 
-        return negate ? true : false;
+        return false;
     }
 
 }
