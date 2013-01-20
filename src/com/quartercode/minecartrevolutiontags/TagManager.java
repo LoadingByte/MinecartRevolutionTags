@@ -6,8 +6,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.bukkit.entity.Minecart;
-import com.quartercode.minecartrevolution.MinecartRevolution;
+import com.quartercode.minecartrevolution.exception.MinecartRevolutionException;
+import com.quartercode.minecartrevolution.exception.MinecartRevolutionSilenceException;
 import com.quartercode.qcutil.io.Properties;
+import com.quartercode.quarterbukkit.QuarterBukkit;
 
 public class TagManager {
 
@@ -25,7 +27,7 @@ public class TagManager {
                 tags.load(minecartRevolutionTags.getTagFile());
             }
             catch (final IOException e) {
-                MinecartRevolution.handleSilenceThrowable(e);
+                QuarterBukkit.exception(new MinecartRevolutionSilenceException(minecartRevolutionTags.getMinecartRevolution(), e, "Can't load tag file!"));
                 save();
             }
         } else {
@@ -93,7 +95,7 @@ public class TagManager {
             tags.store(minecartRevolutionTags.getTagFile(), "Tag Sore File", "Do not edit!");
         }
         catch (final IOException e) {
-            MinecartRevolution.handleThrowable(e);
+            QuarterBukkit.exception(new MinecartRevolutionException(minecartRevolutionTags.getMinecartRevolution(), e, "Can't save tag file!"));
         }
     }
 

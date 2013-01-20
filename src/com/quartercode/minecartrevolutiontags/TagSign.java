@@ -19,7 +19,7 @@ public class TagSign extends ControlSign {
     }
 
     @Override
-    public void execute(Minecart minecart, String label, Sign sign) {
+    public void execute(final Minecart minecart, final String label, final Sign sign) {
 
         executeExpression(minecart, "tag " + sign.getLine(1));
     }
