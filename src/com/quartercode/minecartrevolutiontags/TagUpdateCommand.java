@@ -16,7 +16,7 @@ public class TagUpdateCommand extends MRCommandHandler {
     @Override
     public CommandInfo createInfo() {
 
-        return new CommandInfo(true, null, "Updates your MinecartRevolutionTags to the latest version", "minecartrevolutiontags.command.update", "tagupdate");
+        return new CommandInfo(true, null, "Updates your MinecartRevolutionTags to the latest version", "minecartrevolutiontags.update", "tagupdate");
     }
 
     @Override

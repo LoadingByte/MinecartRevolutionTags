@@ -13,7 +13,13 @@ permissions:
     description: Gives access to use all MinecartRevolutionTags functions
     default: op
     children:
+      minecartrevolutiontags.update: true
       minecartrevolutiontags.control.sign.*: true
+
+
+
+  minecartrevolutiontags.update:
+    description: Gives access to update MinecartRevolutionTags to the latest version
 
 
 
