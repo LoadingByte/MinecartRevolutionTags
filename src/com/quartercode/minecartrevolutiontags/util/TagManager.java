@@ -1,5 +1,5 @@
 
-package com.quartercode.minecartrevolutiontags;
+package com.quartercode.minecartrevolutiontags.util;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,6 +8,7 @@ import java.util.List;
 import org.bukkit.entity.Minecart;
 import com.quartercode.minecartrevolution.exception.MinecartRevolutionException;
 import com.quartercode.minecartrevolution.exception.MinecartRevolutionSilenceException;
+import com.quartercode.minecartrevolutiontags.MinecartRevolutionTags;
 import com.quartercode.qcutil.io.Properties;
 import com.quartercode.quarterbukkit.QuarterBukkit;
 
@@ -92,7 +93,7 @@ public class TagManager {
     private void save() {
 
         try {
-            tags.store(minecartRevolutionTags.getTagFile(), "Tag Sore File", "Do not edit!");
+            tags.store(minecartRevolutionTags.getTagFile(), "Tag Store File", "Do not edit!");
         }
         catch (final IOException e) {
             QuarterBukkit.exception(new MinecartRevolutionException(minecartRevolutionTags.getMinecartRevolution(), e, "Can't save tag file!"));

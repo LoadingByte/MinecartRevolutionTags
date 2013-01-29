@@ -5,6 +5,7 @@ import com.quartercode.basicexpression.BasicExpressionPlugin;
 import com.quartercode.minecartrevolution.plugin.BukkitMinecartRevolutionPlugin;
 import com.quartercode.minecartrevolution.plugin.PluginInfo;
 import com.quartercode.minecartrevolution.plugin.PluginManager;
+import com.quartercode.minecartrevolutiontags.util.TagManager;
 import com.quartercode.qcutil.io.File;
 import com.quartercode.qcutil.version.Version;
 
@@ -41,6 +42,8 @@ public class MinecartRevolutionTags extends BukkitMinecartRevolutionPlugin {
 
         tagFile = new File(getPluginFolder(), "tags.properties");
         tagManager = new TagManager(this);
+
+        addCommandHandler(new TagUpdateCommand());
 
         addExpressionCommand(new TagCommand(this));
         addControlSign(new TagSign());
