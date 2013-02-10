@@ -20,7 +20,7 @@ public class MinecartRevolutionTags extends BukkitMinecartRevolutionPlugin {
     @Override
     public PluginInfo getInfo() {
 
-        return new PluginInfo("MinecartRevolutionTags", new Version("1.0"));
+        return new PluginInfo("MinecartRevolutionTags", new Version("Alpha 1.0"));
     }
 
     public File getTagFile() {
@@ -41,12 +41,12 @@ public class MinecartRevolutionTags extends BukkitMinecartRevolutionPlugin {
         tagFile = new File(getPluginFolder(), "tags.properties");
         tagManager = new TagManager(this);
 
-        addCommandHandler(new TagUpdateCommand());
-
         addExpressionCommand(new TagCommand(this));
         addControlSign(new TagSign());
 
         addMinecartTerm(new TagMinecartTerm(this));
+
+        // addUpdater(new MinecartRevolutionTagsUpdater(this));
     }
 
 }
