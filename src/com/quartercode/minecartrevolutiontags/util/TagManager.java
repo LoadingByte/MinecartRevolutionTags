@@ -10,7 +10,7 @@ import com.quartercode.minecartrevolution.exception.MinecartRevolutionException;
 import com.quartercode.minecartrevolution.exception.MinecartRevolutionSilenceException;
 import com.quartercode.minecartrevolutiontags.MinecartRevolutionTags;
 import com.quartercode.qcutil.io.Properties;
-import com.quartercode.quarterbukkit.api.exception.ExceptionManager;
+import com.quartercode.quarterbukkit.api.exception.ExceptionHandler;
 
 public class TagManager {
 
@@ -28,7 +28,7 @@ public class TagManager {
                 tags.load(minecartRevolutionTags.getTagFile());
             }
             catch (final IOException e) {
-                ExceptionManager.exception(new MinecartRevolutionSilenceException(minecartRevolutionTags.getMinecartRevolution(), e, "Can't load tag file!"));
+                ExceptionHandler.exception(new MinecartRevolutionSilenceException(minecartRevolutionTags.getMinecartRevolution(), e, "Can't load tag file!"));
                 save();
             }
         } else {
@@ -96,7 +96,7 @@ public class TagManager {
             tags.store(minecartRevolutionTags.getTagFile(), "Tag Store File", "Do not edit!");
         }
         catch (final IOException e) {
-            ExceptionManager.exception(new MinecartRevolutionException(minecartRevolutionTags.getMinecartRevolution(), e, "Can't save tag file!"));
+            ExceptionHandler.exception(new MinecartRevolutionException(minecartRevolutionTags.getMinecartRevolution(), e, "Can't save tag file!"));
         }
     }
 
