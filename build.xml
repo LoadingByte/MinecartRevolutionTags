@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MinecartRevolutionTags Plugin" default="jar" basedir=".">
+	<target name="jar">
+		<jar destfile="../Server/plugins/MinecartRevolutionTags.jar">
+			<fileset dir="bin" />
+		</jar>
+	</target>
+</project>
