@@ -21,15 +21,12 @@ package com.quartercode.minecartrevolutiontags;
 import org.bukkit.entity.Minecart;
 import com.quartercode.minecartrevolution.core.util.Direction;
 import com.quartercode.minecartrevolution.core.util.cart.MinecartTerm;
-import com.quartercode.minecartrevolutiontags.util.TagManager;
+import com.quartercode.minecartrevolutiontags.util.TagUtils;
 
 public class TagMinecartTerm implements MinecartTerm {
 
-    private final MinecartRevolutionTags minecartRevolutionTags;
+    public TagMinecartTerm() {
 
-    public TagMinecartTerm(MinecartRevolutionTags minecartRevolutionTags) {
-
-        this.minecartRevolutionTags = minecartRevolutionTags;
     }
 
     @Override
@@ -41,11 +38,10 @@ public class TagMinecartTerm implements MinecartTerm {
     @Override
     public boolean getResult(Minecart minecart, Direction direction, String term) {
 
-        TagManager tagManager = minecartRevolutionTags.getTagManager();
         String tagTerm = term.split("-")[1];
         tagTerm = tagTerm.replaceAll("\\*", ".*");
 
-        for (String tag : tagManager.getTags(minecart)) {
+        for (String tag : TagUtils.getTags(minecart)) {
             if (tag.matches(tagTerm)) {
                 return true;
             }

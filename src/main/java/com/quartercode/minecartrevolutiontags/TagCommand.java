@@ -23,14 +23,12 @@ import com.quartercode.minecartrevolution.core.expression.ExpressionCommand;
 import com.quartercode.minecartrevolution.core.expression.ExpressionCommandInfo;
 import com.quartercode.minecartrevolution.core.expression.TypeArray;
 import com.quartercode.minecartrevolution.core.expression.TypeArray.Type;
+import com.quartercode.minecartrevolutiontags.util.TagUtils;
 
 public class TagCommand extends ExpressionCommand {
 
-    private final MinecartRevolutionTags minecartRevolutionTags;
+    public TagCommand() {
 
-    public TagCommand(MinecartRevolutionTags minecartRevolutionTags) {
-
-        this.minecartRevolutionTags = minecartRevolutionTags;
     }
 
     @Override
@@ -51,15 +49,15 @@ public class TagCommand extends ExpressionCommand {
         String data = String.valueOf(parameter);
 
         if (String.valueOf(parameter).startsWith("+")) {
-            minecartRevolutionTags.getTagManager().addTag(minecart, data.replaceAll("\\+", "").trim());
+            TagUtils.addTag(minecart, data.replaceAll("\\+", "").trim());
         } else if (String.valueOf(parameter).startsWith("-")) {
             if (data.replaceAll("-", "").trim().isEmpty()) {
-                minecartRevolutionTags.getTagManager().removeTags(minecart);
+                TagUtils.clearTags(minecart);
             } else {
-                minecartRevolutionTags.getTagManager().removeTag(minecart, data.replaceAll("-", "").trim());
+                TagUtils.removeTag(minecart, data.replaceAll("-", "").trim());
             }
         } else {
-            minecartRevolutionTags.getTagManager().addTag(minecart, data.trim());
+            TagUtils.addTag(minecart, data.trim());
         }
     }
 

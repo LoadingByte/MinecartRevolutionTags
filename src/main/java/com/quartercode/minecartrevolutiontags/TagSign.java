@@ -18,6 +18,7 @@
 
 package com.quartercode.minecartrevolutiontags;
 
+import java.util.Arrays;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Minecart;
 import com.quartercode.minecartrevolution.core.control.sign.ControlSign;
@@ -38,7 +39,11 @@ public class TagSign extends ControlSign {
     @Override
     public void execute(Minecart minecart, String label, Sign sign) {
 
-        executeExpression(minecart, "tag " + sign.getLine(1));
+        for (String line : Arrays.copyOfRange(sign.getLines(), 1, sign.getLines().length)) {
+            if (!line.isEmpty()) {
+                executeExpression(minecart, "tag " + line);
+            }
+        }
     }
 
 }
