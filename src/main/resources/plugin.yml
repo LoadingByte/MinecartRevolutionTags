@@ -1,0 +1,41 @@
+name: ${project.name}
+version: ${project.version}
+description: ${description}
+authors: [QuarterCode, LoadingByte]
+website: ${url}
+main: ${main.class}
+depend: [MinecartRevolution]
+
+
+
+permissions:
+  minecartrevolutiontags.*:
+    description: Gives access to use all MinecartRevolutionTags functions
+    default: op
+    children:
+      minecartrevolutiontags.update: true
+      minecartrevolutiontags.control.sign.*: true
+
+
+
+  minecartrevolutiontags.update:
+    description: Gives access to update MinecartRevolutionTags to the latest version
+
+
+
+  minecartrevolutiontags.control.sign.*:
+    description: Gives access to use all MinecartRevolutionTags control signs
+    children:
+      minecartrevolutiontags.control.sign.tag.*: true
+      minecartrevolutiontags.control.sign.tagterm.*: true
+
+
+  minecartrevolution.control.sign.tag.*:
+    description: Gives access to use the MinecartRevolutionTags Tag sign
+    children:
+      minecartrevolution.control.sign.tag.place: true
+      minecartrevolution.control.sign.tag.destroy: true
+  minecartrevolution.control.sign.tag.place:
+    description: Gives access to place the MinecartRevolutionTags Tag sign
+  minecartrevolution.control.sign.tag.destroy:
+    description: Gives access to destroy the MinecartRevolutionTags Tag sign
