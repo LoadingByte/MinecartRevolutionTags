@@ -68,7 +68,6 @@ public class TagManager {
 
     private String getKey(Minecart minecart) {
 
-        System.out.println(minecart.getUniqueId().toString());
         return minecart.getUniqueId().toString();
     }
 
