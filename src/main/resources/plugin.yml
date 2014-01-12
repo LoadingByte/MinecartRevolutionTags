@@ -1,8 +1,8 @@
 name: ${project.name}
 version: ${project.version}
-description: ${description}
+description: ${project.description}
 authors: [QuarterCode, LoadingByte]
-website: ${url}
+website: ${project.url}
 main: ${main.class}
 depend: [MinecartRevolution]
 
