@@ -18,17 +18,12 @@
 
 package com.quartercode.minecartrevolutiontags;
 
-import java.io.File;
 import com.quartercode.minecartrevolution.core.plugin.BukkitMinecartRevolutionPlugin;
 import com.quartercode.minecartrevolution.core.plugin.PluginInfo;
 import com.quartercode.minecartrevolutiontags.util.MinecartRevolutionTagsUpdater;
-import com.quartercode.minecartrevolutiontags.util.TagManager;
-import com.quartercode.quarterbukkit.api.scheduler.ScheduleTask;
+import com.quartercode.minecartrevolutiontags.util.TagUtils;
 
 public class MinecartRevolutionTags extends BukkitMinecartRevolutionPlugin {
-
-    private File       tagFile;
-    private TagManager tagManager;
 
     public MinecartRevolutionTags() {
 
@@ -41,48 +36,19 @@ public class MinecartRevolutionTags extends BukkitMinecartRevolutionPlugin {
         return new PluginInfo("MinecartRevolutionTags");
     }
 
-    public File getTagFile() {
-
-        return tagFile;
-    }
-
-    public TagManager getTagManager() {
-
-        return tagManager;
-    }
-
     @Override
     public void enable() {
 
-        // Don't worry about QuarterBukkit; it's loaded by MinecartRevolution
+        // QuarterBukkit is loaded by MinecartRevolution
 
-        new MinecartListener(this);
+        TagUtils.setMetadataStorage(getMetdataStorage());
 
-        tagFile = new File(getPluginFolder(), "tags.properties");
-        tagManager = new TagManager(this);
-
-        addExpressionCommand(new TagCommand(this));
+        addExpressionCommand(new TagCommand());
         addControlSign(new TagSign());
 
-        addMinecartTerm(new TagMinecartTerm(this));
+        addMinecartTerm(new TagMinecartTerm());
 
         addUpdater(new MinecartRevolutionTagsUpdater(this));
-
-        // Schedule task for saving tags every 10 minutes
-        new ScheduleTask(this) {
-
-            @Override
-            public void run() {
-
-                tagManager.save();
-            }
-        }.run(true, 10 * 60 * 1000, 10 * 60 * 1000);
-    }
-
-    @Override
-    public void onDisable() {
-
-        tagManager.save();
     }
 
 }

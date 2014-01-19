@@ -4,7 +4,7 @@
 
     <groupId>com.quartercode</groupId>
     <artifactId>minecartrevolutiontags</artifactId>
-    <version>1.0.2-ALPHA</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>MinecartRevolutionTags</name>
@@ -14,6 +14,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <quarterbukkit.version>0.1.3</quarterbukkit.version>
         <main.class>com.quartercode.minecartrevolutiontags.MinecartRevolutionTags</main.class>
     </properties>
 
@@ -39,12 +40,40 @@
         </license>
     </licenses>
 
+    <scm>
+        <url>https://github.com/QuarterCode/MinecartRevolutionTags/tree/master/</url>
+        <connection>scm:git:git://github.com/QuarterCode/MinecartRevolutionTags.git</connection>
+        <developerConnection>scm:git:git@github.com:QuarterCode/MinecartRevolutionTags.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/QuarterCode/MinecartRevolutionTags/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>Jenkins</system>
+        <url>http://ci.quartercode.com</url>
+    </ciManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>quartercode-deployment</id>
+            <url>http://repo.quartercode.com/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>quartercode-deployment</id>
+            <url>http://repo.quartercode.com/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <dependencies>
         <!-- Bukkit -->
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.7.2-R0.2-SNAPSHOT</version>
+            <version>1.7.2-R0.2</version>
             <scope>provided</scope>
         </dependency>
 
@@ -52,7 +81,7 @@
         <dependency>
             <groupId>com.quartercode</groupId>
             <artifactId>quarterbukkit-plugin</artifactId>
-            <version>1.5-BETA</version>
+            <version>${quarterbukkit.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -60,16 +89,21 @@
         <dependency>
             <groupId>com.quartercode</groupId>
             <artifactId>minecartrevolution-package</artifactId>
-            <version>1.1.0-ALPHA</version>
+            <version>1.0.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
 
     <repositories>
         <repository>
-            <id>bukkit-repo</id>
+            <id>bukkit-repository</id>
             <name>Bukkit Repository</name>
             <url>http://repo.bukkit.org/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>quartercode-repository</id>
+            <name>QuarterCode Repository</name>
+            <url>http://repo.quartercode.com/content/groups/public/</url>
         </repository>
     </repositories>
 
