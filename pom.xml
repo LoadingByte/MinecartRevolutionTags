@@ -41,10 +41,9 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/QuarterCode/MinecartRevolutionTags/tree/master/</url>
+        <url>https://github.com/QuarterCode/MinecartRevolutionTags</url>
         <connection>scm:git:git://github.com/QuarterCode/MinecartRevolutionTags.git</connection>
         <developerConnection>scm:git:git@github.com:QuarterCode/MinecartRevolutionTags.git</developerConnection>
-        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
