@@ -20,8 +20,10 @@ package com.quartercode.minecartrevolutiontags;
 
 import com.quartercode.minecartrevolution.core.plugin.BukkitMinecartRevolutionPlugin;
 import com.quartercode.minecartrevolution.core.plugin.PluginInfo;
-import com.quartercode.minecartrevolutiontags.util.MinecartRevolutionTagsUpdater;
+import com.quartercode.minecartrevolution.core.util.JarUpdater;
 import com.quartercode.minecartrevolutiontags.util.TagUtils;
+import com.quartercode.quarterbukkit.api.query.FilesQuery.ProjectFile;
+import com.quartercode.quarterbukkit.api.query.FilesQuery.VersionParser;
 
 public class MinecartRevolutionTags extends BukkitMinecartRevolutionPlugin {
 
@@ -48,7 +50,14 @@ public class MinecartRevolutionTags extends BukkitMinecartRevolutionPlugin {
 
         addMinecartTerm(new TagMinecartTerm());
 
-        addUpdater(new MinecartRevolutionTagsUpdater(this));
+        addUpdater(new JarUpdater(this, 50146, new VersionParser() {
+
+            @Override
+            public String parseVersion(ProjectFile file) {
+
+                return file.getName().replace("MinecartRevolutionTags ", "");
+            }
+        }));
     }
 
 }
