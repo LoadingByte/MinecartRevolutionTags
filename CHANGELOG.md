@@ -1,3 +1,9 @@
+1.2.0
+-----
+
+### Notes
+* Maven will publish the sources from this version onwards.
+
 1.1.0
 -----
 
