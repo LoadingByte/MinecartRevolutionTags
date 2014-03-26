@@ -44,15 +44,14 @@ public class TagUtils {
 
     public static void setTags(Vehicle vehicle, Set<String> tags) {
 
-        if (tags.size() == 0) {
+        if (tags.isEmpty()) {
             clearTags(vehicle);
         } else {
-            String tagString = "";
+            StringBuilder tagString = new StringBuilder();
             for (String tag : tags) {
-                tagString += "," + tag;
+                tagString.append(",").append(tag);
             }
-            tagString = tagString.substring(1);
-            metadataStorage.set(vehicle, "mrtags", tagString);
+            metadataStorage.set(vehicle, "mrtags", tagString.substring(1));
         }
     }
 
