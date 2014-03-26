@@ -1,6 +1,9 @@
 1.2.0
 -----
 
+### Fixes
+* Fixed some really minor issues based on automatic suggestions.
+
 ### Notes
 * Maven will publish the sources from this version onwards.
 
